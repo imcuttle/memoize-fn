@@ -3,8 +3,8 @@
  * @author imcuttle
  * @date 2018/4/4
  */
-const memoize = require('..').default
-const { withCtx, robust } = require('..')
+import memoize from '..'
+import { withCtx, robust } from '..'
 
 const mkFn = (fn = () => {}) => {
   let mockFn = jest.fn(() => {

@@ -30,7 +30,6 @@
     "fn",
     "memoize-fn"
   ],
-  "typings": "index.d.ts",
   "license": "MIT",
   "repository": "imcuttle/memoize-fn",
   "jest": {
@@ -38,7 +37,7 @@
       "**/__test{s,}__/*.(spec|test).{t,j}s{x,}"
     ]
   },
-  "module": "dist/index.module.js",
+  "module": "index.js",
   "browser": "dist/index.umd.js",
   "commitlint": {
     "extends": [
@@ -56,6 +55,7 @@
     "jest": "^23.6.0",
     "prettier": "^1.17.0",
     "pretty-quick": "^1.10.0",
+    "rimraf": "^2.6.3",
     "rollup": "^1.10.1"
   },
   "dependencies": {

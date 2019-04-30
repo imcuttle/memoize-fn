@@ -10,7 +10,7 @@ export default [
         file: pkg.browser,
         format: 'umd'
       },
-      { file: pkg.module, format: 'es' },
+      // { file: pkg.module, format: 'es' },
       { file: pkg.main, format: 'cjs' }
     ],
     plugins: [

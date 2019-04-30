@@ -5,8 +5,6 @@
  */
 import shallowEqual from 'shallowequal'
 
-const getDefaultCache = () => new Map()
-
 /**
  * Memoize function that caches the result of the different arguments.
  * @public
@@ -16,7 +14,7 @@ const getDefaultCache = () => new Map()
  */
 export default function memoize(
   fn,
-  { once = false, eq = (prevArgs, newArgs) => shallowEqual(prevArgs, newArgs), cache = getDefaultCache() } = {}
+  { once = false, eq = (prevArgs, newArgs) => shallowEqual(prevArgs, newArgs), cache = new Map() } = {}
 ) {
   function memoizeFn() {
     let curKey = [].slice.apply(arguments)
