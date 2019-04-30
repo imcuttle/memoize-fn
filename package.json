@@ -6,9 +6,11 @@
   "author": "imcuttle <moyuyc95@gmail.com>",
   "scripts": {
     "test": "jest",
+    "test-ci": "npm run clean && npm test",
     "prepublishOnly": "npm test",
     "prepare": "npm run build",
-    "build": "rimraf dist && rollup -c",
+    "clean": "rimraf dist",
+    "build": "npm run clean && rollup -c",
     "dev": "npm run build -- -w",
     "doc": "documentation --github --markdown-toc=false readme index.js -a public -s \"API\" && git add README.md",
     "version": "npm run doc && npm run changelog",

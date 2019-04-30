@@ -15,7 +15,7 @@ cache:
 # - npm install
 
 script:
-  - npm test -- --coverage
+  - npm run test-ci -- --coverage
 after_script:
   - npm install codecov --no-save
   - codecov --token=$CODECOV_TOKEN
