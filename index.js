@@ -111,6 +111,6 @@ export function robust(fn, opts) {
  * @public
  * @name CtxFunction
  * @type {Function}
- * @param [reset=() => {}]
- * @param [unCache=() => {}]
+ * @param reset {Function}
+ * @param unCache {Function}
  */
