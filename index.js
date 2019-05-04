@@ -100,7 +100,7 @@ export function robust(fn, opts) {
  * @public
  * @name MemoizeOptions
  * @type {{}}
- * @param [once=false] {boolean}
+ * @param [once=false] {boolean} - Only cache once like [memoize-one](https://github.com/alexreardon/memoize-one)
  * @param [eq=shallowEqual] {(prevArgs, newArgs) => boolean}
  * @param [cache=new Map()] {Map}
  */
@@ -109,6 +109,6 @@ export function robust(fn, opts) {
  * @public
  * @name CtxFunction
  * @type {Function}
- * @param reset {Function}
- * @param unCache {Function}
+ * @param reset {Function} - Resets cache
+ * @param unCache {Function} - Disables cache
  */

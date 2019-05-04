@@ -39,7 +39,7 @@ count // => 3
 
 ### memoize
 
-[index.js:17-47](https://github.com/imcuttle/memoize-fn/blob/34bf49bcb1d8eb135dcf1944679dbeb8b0678d8a/index.js#L17-L47 'Source code on GitHub')
+[index.js:15-45](https://github.com/imcuttle/memoize-fn/blob/0bc102250ea266bee56b6ea069e677e9ec92d46d/index.js#L15-L45 'Source code on GitHub')
 
 Memoize function that caches the result of the different arguments.
 
@@ -49,13 +49,13 @@ Memoize function that caches the result of the different arguments.
 - `options` **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** {MemoizeOptions} (optional, default `{}`)
   - `options.once` (optional, default `false`)
   - `options.eq` (optional, default `(prevArgs,newArgs)=>shallowEqual(prevArgs,newArgs)`)
-  - `options.cache` (optional, default `getDefaultCache()`)
+  - `options.cache` (optional, default `new Map()`)
 
 Returns **any** memoizeFn {Function}
 
 ### withCtx
 
-[index.js:56-75](https://github.com/imcuttle/memoize-fn/blob/34bf49bcb1d8eb135dcf1944679dbeb8b0678d8a/index.js#L56-L75 'Source code on GitHub')
+[index.js:54-73](https://github.com/imcuttle/memoize-fn/blob/0bc102250ea266bee56b6ea069e677e9ec92d46d/index.js#L54-L73 'Source code on GitHub')
 
 Memoize function that caches the result of the different arguments and with context
 
@@ -68,7 +68,7 @@ Returns **[CtxFunction](#ctxfunction)**
 
 ### robust
 
-[index.js:84-99](https://github.com/imcuttle/memoize-fn/blob/34bf49bcb1d8eb135dcf1944679dbeb8b0678d8a/index.js#L84-L99 'Source code on GitHub')
+[index.js:82-97](https://github.com/imcuttle/memoize-fn/blob/0bc102250ea266bee56b6ea069e677e9ec92d46d/index.js#L82-L97 'Source code on GitHub')
 
 Memoize function that caches the result of the different arguments and resets memoize function when catches error asynchronously.
 
@@ -81,26 +81,26 @@ Returns **[CtxFunction](#ctxfunction)**
 
 ### MemoizeOptions
 
-[index.js:84-99](https://github.com/imcuttle/memoize-fn/blob/34bf49bcb1d8eb135dcf1944679dbeb8b0678d8a/index.js#L84-L99 'Source code on GitHub')
+[index.js:82-97](https://github.com/imcuttle/memoize-fn/blob/0bc102250ea266bee56b6ea069e677e9ec92d46d/index.js#L82-L97 'Source code on GitHub')
 
 Type: {}
 
 #### Parameters
 
-- `once` {boolean} (optional, default `false`)
+- `once` {boolean} - Only cache once like [memoize-one](https://github.com/alexreardon/memoize-one) (optional, default `false`)
 - `eq` {(prevArgs, newArgs) => boolean} (optional, default `shallowEqual`)
 - `cache` {Map} (optional, default `newMap()`)
 
 ### CtxFunction
 
-[index.js:84-99](https://github.com/imcuttle/memoize-fn/blob/34bf49bcb1d8eb135dcf1944679dbeb8b0678d8a/index.js#L84-L99 'Source code on GitHub')
+[index.js:82-97](https://github.com/imcuttle/memoize-fn/blob/0bc102250ea266bee56b6ea069e677e9ec92d46d/index.js#L82-L97 'Source code on GitHub')
 
 Type: [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)
 
 #### Parameters
 
-- `reset` {Function}
-- `unCache` {Function}
+- `reset` {Function} - Resets cache
+- `unCache` {Function} - Disables cache
 
 ## Contributing
 
