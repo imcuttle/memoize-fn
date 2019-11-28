@@ -1,6 +1,6 @@
 {
   "name": "memoize-fn",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/index.cjs.js",
   "description": "A memoization library that caches the result of the different arguments",
   "author": "imcuttle <moyuyc95@gmail.com>",
