@@ -14,14 +14,19 @@ import shallowEqual from 'shallowequal'
  */
 export default function memoize(
   fn,
-  { once = false, eq = (prevArgs, newArgs) => shallowEqual(prevArgs, newArgs), cache = new Map() } = {}
+  {
+    once = false,
+    eq = (prevArgs, newArgs) => shallowEqual(prevArgs, newArgs),
+    cache = new Map(),
+    skipEqualThis = false
+  } = {}
 ) {
   function memoizeFn() {
     let curKey = [].slice.apply(arguments)
     let isContainsKey = false
     let containsKey
     for (let key of cache.keys()) {
-      if (cache.get(key).this === this && eq(curKey, key)) {
+      if ((skipEqualThis || cache.get(key).this === this) && eq(curKey, key)) {
         isContainsKey = true
         containsKey = key
         break
@@ -103,6 +108,7 @@ export function robust(fn, opts) {
  * @param [once=false] {boolean} - Only cache once like [memoize-one](https://github.com/alexreardon/memoize-one)
  * @param [eq=shallowEqual] {(prevArgs, newArgs) => boolean}
  * @param [cache=new Map()] {Map}
+ * @param [skipEqualThis=false] {boolean}
  */
 
 /**
