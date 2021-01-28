@@ -18,7 +18,7 @@ export default function memoize(
     once = false,
     eq = (prevArgs, newArgs) => shallowEqual(prevArgs, newArgs),
     cache = new Map(),
-    skipEqualThis = false
+    skipEqualThis = true
   } = {}
 ) {
   function memoizeFn() {
@@ -108,7 +108,7 @@ export function robust(fn, opts) {
  * @param [once=false] {boolean} - Only cache once like [memoize-one](https://github.com/alexreardon/memoize-one)
  * @param [eq=shallowEqual] {(prevArgs, newArgs) => boolean}
  * @param [cache=new Map()] {Map}
- * @param [skipEqualThis=false] {boolean}
+ * @param [skipEqualThis=true] {boolean}
  */
 
 /**

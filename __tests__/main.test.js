@@ -38,6 +38,19 @@ const sandbox = action => {
   }
 }
 
+const sandboxObservable = action => {
+  let p = action()
+
+  return new Promise(resolve => {
+    p.pipe(
+      switchMap(x => (console.log(x), x)),
+      catchError(err => {
+        return of(err)
+      })
+    ).subscribe(resolve)
+  })
+}
+
 describe('memoizeFn', function() {
   let normalFn = mkFn()
   let normalWithErrorFn = mkFn(() => {
