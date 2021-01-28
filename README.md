@@ -39,7 +39,7 @@ count // => 3
 
 ### memoize
 
-[index.js:15-50](https://github.com/imcuttle/memoize-fn/blob/417816b8361cec1f411fc8fbf1ba265914f8afdf/index.js#L15-L50 'Source code on GitHub')
+[index.js:15-50](https://github.com/imcuttle/memoize-fn/blob/9d7171e44c6642b1d5b20d7f65d424e876a2664f/index.js#L15-L50 'Source code on GitHub')
 
 Memoize function that caches the result of the different arguments.
 
@@ -50,13 +50,13 @@ Memoize function that caches the result of the different arguments.
   - `options.once` (optional, default `false`)
   - `options.eq` (optional, default `(prevArgs,newArgs)=>shallowEqual(prevArgs,newArgs)`)
   - `options.cache` (optional, default `new Map()`)
-  - `options.skipEqualThis` (optional, default `false`)
+  - `options.skipEqualThis` (optional, default `true`)
 
 Returns **any** memoizeFn {Function}
 
 ### withCtx
 
-[index.js:59-78](https://github.com/imcuttle/memoize-fn/blob/417816b8361cec1f411fc8fbf1ba265914f8afdf/index.js#L59-L78 'Source code on GitHub')
+[index.js:59-78](https://github.com/imcuttle/memoize-fn/blob/9d7171e44c6642b1d5b20d7f65d424e876a2664f/index.js#L59-L78 'Source code on GitHub')
 
 Memoize function that caches the result of the different arguments and with context
 
@@ -69,7 +69,7 @@ Returns **[CtxFunction](#ctxfunction)**
 
 ### robust
 
-[index.js:87-102](https://github.com/imcuttle/memoize-fn/blob/417816b8361cec1f411fc8fbf1ba265914f8afdf/index.js#L87-L102 'Source code on GitHub')
+[index.js:87-102](https://github.com/imcuttle/memoize-fn/blob/9d7171e44c6642b1d5b20d7f65d424e876a2664f/index.js#L87-L102 'Source code on GitHub')
 
 Memoize function that caches the result of the different arguments and resets memoize function when catches error asynchronously.
 
@@ -82,7 +82,7 @@ Returns **[CtxFunction](#ctxfunction)**
 
 ### MemoizeOptions
 
-[index.js:87-102](https://github.com/imcuttle/memoize-fn/blob/417816b8361cec1f411fc8fbf1ba265914f8afdf/index.js#L87-L102 'Source code on GitHub')
+[index.js:87-102](https://github.com/imcuttle/memoize-fn/blob/9d7171e44c6642b1d5b20d7f65d424e876a2664f/index.js#L87-L102 'Source code on GitHub')
 
 Type: {}
 
@@ -91,11 +91,11 @@ Type: {}
 - `once` {boolean} - Only cache once like [memoize-one](https://github.com/alexreardon/memoize-one) (optional, default `false`)
 - `eq` {(prevArgs, newArgs) => boolean} (optional, default `shallowEqual`)
 - `cache` {Map} (optional, default `newMap()`)
-- `skipEqualThis` {boolean} (optional, default `false`)
+- `skipEqualThis` {boolean} (optional, default `true`)
 
 ### CtxFunction
 
-[index.js:87-102](https://github.com/imcuttle/memoize-fn/blob/417816b8361cec1f411fc8fbf1ba265914f8afdf/index.js#L87-L102 'Source code on GitHub')
+[index.js:87-102](https://github.com/imcuttle/memoize-fn/blob/9d7171e44c6642b1d5b20d7f65d424e876a2664f/index.js#L87-L102 'Source code on GitHub')
 
 Type: [Function](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/function)
 
