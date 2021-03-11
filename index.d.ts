@@ -12,8 +12,10 @@ export type MemoizeOptions = {
   skipEqualThis?: boolean
 }
 
-export function withCtx(fn: Function, opts?: MemoizeOptions): CtxFunction<typeof fn>
+type MemoizeFn<T extends Function> = (fn: T, opts?: MemoizeOptions) => CtxFunction<T>
 
-export function robust(fn: Function, opts?: MemoizeOptions): CtxFunction<typeof fn>
+export function withCtx<T extends Function>(fn: T, opts?: MemoizeOptions): CtxFunction<T>
 
-export default function memoize(fn: Function, opts?: MemoizeOptions): typeof fn
+export function robust<T extends Function>(fn: T, opts?: MemoizeOptions): CtxFunction<T>
+
+export default function memoize<T extends Function>(fn: T, opts?: MemoizeOptions): T
