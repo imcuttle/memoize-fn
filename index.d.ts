@@ -12,8 +12,6 @@ export type MemoizeOptions = {
   skipEqualThis?: boolean
 }
 
-type MemoizeFn<T extends Function> = (fn: T, opts?: MemoizeOptions) => CtxFunction<T>
-
 export function withCtx<T extends Function>(fn: T, opts?: MemoizeOptions): CtxFunction<T>
 
 export function robust<T extends Function>(fn: T, opts?: MemoizeOptions): CtxFunction<T>
