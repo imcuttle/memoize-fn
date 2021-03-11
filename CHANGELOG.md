@@ -1,3 +1,12 @@
+<a name="2.0.1"></a>
+
+## [2.0.1](https://github.com/imcuttle/memoize-fn/compare/v2.0.0...v2.0.1) (2021-03-11)
+
+### Bug Fixes
+
+- ts type define ([dc408a3](https://github.com/imcuttle/memoize-fn/commit/dc408a3)), closes [#9](https://github.com/imcuttle/memoize-fn/issues/9)
+- ts type define ([0408f73](https://github.com/imcuttle/memoize-fn/commit/0408f73)), closes [#9](https://github.com/imcuttle/memoize-fn/issues/9)
+
 <a name="2.0.0"></a>
 
 # [2.0.0](https://github.com/imcuttle/memoize-fn/compare/v1.0.2...v2.0.0) (2021-01-28)
