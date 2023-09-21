@@ -3,7 +3,7 @@
  * A memoization library that caches the result of the different arguments
  * @author imcuttle
  */
-import shallowEqual from 'shallowequal'
+import * as shallowEqual from 'shallowequal'
 
 /**
  * Memoize function that caches the result of the different arguments.
@@ -12,15 +12,15 @@ import shallowEqual from 'shallowequal'
  * @param options {MemoizeOptions}
  * @return memoizeFn {Function}
  */
-export default function memoize(
-  fn,
+export default function memoize<T extends (...args: any[]) => any>(
+  fn: T,
   {
     once = false,
     eq = (prevArgs, newArgs) => shallowEqual(prevArgs, newArgs),
     cache = new Map(),
     skipEqualThis = true
-  } = {}
-) {
+  }: MemoizeOptions = {}
+): T {
   function memoizeFn() {
     let curKey = [].slice.apply(arguments)
     let isContainsKey = false
@@ -46,7 +46,7 @@ export default function memoize(
     return result
   }
 
-  return memoizeFn
+  return memoizeFn as any
 }
 
 /**
@@ -56,7 +56,7 @@ export default function memoize(
  * @param opts {MemoizeOptions}
  * @return {CtxFunction}
  */
-export function withCtx(fn, opts) {
+export function withCtx<T extends (...args: any[]) => any>(fn: T, opts: MemoizeOptions): CtxFunction<T> {
   let ctx
   function wrapFn() {
     return ctx.mfn.apply(this, arguments)
@@ -84,11 +84,11 @@ export function withCtx(fn, opts) {
  * @param opts {MemoizeOptions}
  * @return {CtxFunction}
  */
-export function robust(fn, opts) {
+export function robust<T extends (...args: any[]) => any>(fn: T, opts: MemoizeOptions): CtxFunction<T> {
   let ctx = withCtx(fn, opts)
 
   function wrapFn() {
-    let rlt = ctx.apply(this, arguments)
+    const rlt = ctx.apply(this, arguments)
     if (rlt && typeof rlt.then === 'function' && typeof rlt.catch === 'function') {
       return rlt.catch(err => {
         ctx.reset()
@@ -118,3 +118,17 @@ export function robust(fn, opts) {
  * @param reset {Function} - Resets cache
  * @param unCache {Function} - Disables cache
  */
+
+export type CtxFunction<F extends Function> = F & {
+  fn: F
+  mfn: F
+  reset: () => void
+  unCache: () => void
+}
+
+export type MemoizeOptions = {
+  once?: boolean
+  eq?: (prevArgs: any[], nextArgs: []) => boolean
+  cache?: Map<any, { result: any; this: any }>
+  skipEqualThis?: boolean
+}

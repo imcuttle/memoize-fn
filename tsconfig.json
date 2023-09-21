@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "declaration": true,
+    "target": "es2015",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": ["./src"],
+  "exclude": []
+}

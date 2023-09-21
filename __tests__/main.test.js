@@ -3,8 +3,8 @@
  * @author imcuttle
  * @date 2018/4/4
  */
-import memoize from '..'
-import { withCtx, robust } from '..'
+const memoize = require('../src/index').default
+const { withCtx, robust } = require('../src/index')
 
 const mkFn = (fn = () => {}) => {
   let mockFn = jest.fn(() => {
@@ -123,19 +123,19 @@ describe('memoizeFn', function() {
     expect(await memFn({})).toBe('123')
 
     expect(cache).toMatchInlineSnapshot(`
-Map {
-  Array [] => Object {
-    "result": Promise {},
-    "this": undefined,
-  },
-  Array [
-    Object {},
-  ] => Object {
-    "result": Promise {},
-    "this": undefined,
-  },
-}
-`)
+      Map {
+        [] => {
+          "result": Promise {},
+          "this": undefined,
+        },
+        [
+          {},
+        ] => {
+          "result": Promise {},
+          "this": undefined,
+        },
+      }
+    `)
   })
 
   it('should mem with once by async', async function() {
@@ -149,15 +149,15 @@ Map {
     // different argument
     expect(await memFn({})).toBe('123')
     expect(cache).toMatchInlineSnapshot(`
-Map {
-  Array [
-    Object {},
-  ] => Object {
-    "result": Promise {},
-    "this": undefined,
-  },
-}
-`)
+      Map {
+        [
+          {},
+        ] => {
+          "result": Promise {},
+          "this": undefined,
+        },
+      }
+    `)
   })
 
   it('should mem even throw error by async', async function() {
